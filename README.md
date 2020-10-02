@@ -59,7 +59,7 @@
 | purchase_id             | integer | null: false, foreign_key: true |
 | postal_code             | string  | null: false                    | #ハイフンをつける可能性があるためStringを使用
 | prefecture_id           | integer | null: false                    | #active_hash
-| city                    | string | null: false                    | 
+| city                    | string  | null: false                    | 
 | street_name             | string  | null: false                    |
 | building                | string  |                                | 
 | phone_number            | string  | null: false                    | 
