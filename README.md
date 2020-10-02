@@ -26,8 +26,8 @@
 | introduction               | text    | null: false                    |
 | price                      | integer | null: false                    |
 | user_id                    | integer | null: false, foreign_key: true |
-| category_id                | string  | null: false                    | #active_hash
-| condition_id               | string  | null: false                    | #active_hash
+| category_id                | integer | null: false                    | #active_hash
+| condition_id               | integer | null: false                    | #active_hash
 | shipping_cost              | integer | null: false                    |
 | prefecture _id             | integer | null: false                    | #active_hash
 | estimated_shipping_date_id | string  | null: false                    | #active_hash
