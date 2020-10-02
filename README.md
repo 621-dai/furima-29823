@@ -28,9 +28,9 @@
 | user_id                    | integer | null: false, foreign_key: true |
 | category_id                | integer | null: false                    | #active_hash
 | condition_id               | integer | null: false                    | #active_hash
-| shipping_cost              | integer | null: false                    |
+| shipping_cost _id          | integer | null: false                    | #active_hash
 | prefecture _id             | integer | null: false                    | #active_hash
-| estimated_shipping_date_id | string  | null: false                    | #active_hash
+| estimated_shipping_date_id | integer | null: false                    | #active_hash
 
 ### Association
 
