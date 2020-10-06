@@ -1,4 +1,4 @@
-ユーザー管理機能の実装
+class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -7,3 +7,4 @@
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
   end
 end
+
