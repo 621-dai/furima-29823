@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_many :purchases
 
   validates :nickname, :first_name, :last_name, :birthday, :password_confirmation, presence: true
-  validates :password, presence: true, length: { minimum: 6 }, 
+  validates :password, presence: true, 
             # 6文字以上の英数字のみ可
-            format: { with: /\A[a-z0-9]+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
+            format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,100}+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
   validates :email, presence: true, 
             # 重複不可
             uniqueness: { case_sensitive: false }, 
