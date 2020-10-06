@@ -66,10 +66,31 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password confirmation can't be blank")
       end
+      it '名前（first_name）が空では登録できない' do
+        @user.first_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name can't be blank")
+      end
+      it '名前（last_name）が空では登録できない' do
+        @user.last_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name can't be blank")
+      end
       it '名前（first_name_kana）にカタカナ以外があれば登録できない' do
+        @user.first_name_kana = '鈴木たろう'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana is invalid. Input full-width katakana characters.")
       end
       it '名前（last_name_kana）にカタカナ以外があれば登録できない' do
+        @user.last_name_kana = '鈴木たろう'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid. Input full-width katakana characters.")
       end
-    end
+      it '誕生日が空では登録できない' do
+        @user.birthday = '' '' ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
+      end
+    end 
   end
 end
