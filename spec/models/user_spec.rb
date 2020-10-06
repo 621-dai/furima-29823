@@ -76,6 +76,16 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
+      it '名前（first_name）は全角（漢字・ひらがな・カタカナ）ではないと登録できない' do
+        @user.first_name = 'test123テストてすと'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters.")
+      end
+      it '名前（last_name）は全角（漢字・ひらがな・カタカナ）ではないと登録できない' do
+        @user.last_name = 'test123テストてすと'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters.")
+      end
       it '名前（first_name_kana）にカタカナ以外があれば登録できない' do
         @user.first_name_kana = '鈴木たろう'
         @user.valid?
