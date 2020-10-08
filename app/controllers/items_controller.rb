@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
   end
@@ -9,7 +10,8 @@ class ItemsController < ApplicationController
 
   def create
     @items = Item.create(item_params)
-    if @items.save
+    if@item.valid?
+     @items.save
       redirect_to root_path
     else
       render :new
