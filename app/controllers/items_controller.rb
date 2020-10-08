@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @items = Item.new(item_params)
+    @items = Item.create(item_params)
     if @items.save
       redirect_to root_path
     else
