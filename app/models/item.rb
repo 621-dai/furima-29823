@@ -12,10 +12,11 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :name, :introduction, :image
-    validates :category_id, :condition_id, :shipping_cost_id, :prefecture_id, :estimated_shipping_date_id, 
-               numericality: { other_than: 1 } 
+    validates :category_id, :condition_id, :shipping_cost_id, :estimated_shipping_date_id, 
+               numericality: { only_integer: true, greater_than: 1, message: "is invalid"}
+    validates :prefecture_id, numericality: { only_integer: true, greater_than: 0, message: "is invalid"}
     validates :price, format: { with: /\A[0-9]+\z/, message: "is invalid. Input half-width numbers."} 
     validates :price, numericality: { only_integer: true, greater_than: 300, less_than: 9999999, 
-               message: "is invalid. Price must be between ¥300 and ¥9,999,999."}
+               message: "is invalid. Input half-width numbers and Price must be between ¥300 and ¥9,999,999."}
   end
 end
