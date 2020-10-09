@@ -8,9 +8,10 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one :purchase
+  has_one_attached :image
 
   with_options presence: true do
-    validates :name, :introduction
+    validates :name, :introduction, :image
     validates :category_id, :condition_id, :shipping_cost_id, :prefecture_id, :estimated_shipping_date_id, 
                numericality: { other_than: 1 } 
     validates :price, format: { with: /\A[0-9]+\z/, message: "is invalid. Input half-width numbers."} 
