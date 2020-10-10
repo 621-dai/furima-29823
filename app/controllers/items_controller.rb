@@ -19,9 +19,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def show #商品詳細機能で使います
-    # @item = Item.find(params[:id])
-  # end
+  def show 
+    @item = Item.find(params[:id])
+  end
 
   # def edit #編集機能で使います
   # end
@@ -30,6 +30,9 @@ class ItemsController < ApplicationController
     # @items.update(item_params)
     # redirect_to root_path
   # end
+
+  def destroy
+  end
 
   private
 
