@@ -18,16 +18,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show #商品詳細機能で使います
-  end
+  # def show #商品詳細機能で使います
+  # end
 
-  def edit #編集機能で使います
-  end
+  # def edit #編集機能で使います
+  # end
 
-  def update #編集機能で使います
-    @items.update(item_params)
-    redirect_to root_path
-  end
+  # def update #編集機能で使います
+    # @items.update(item_params)
+    # redirect_to root_path
+  # end
 
   private
 
