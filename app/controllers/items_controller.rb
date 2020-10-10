@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     @items.update(item_params)
     redirect_to root_path
   end
+  #編集機能で使います
 
   private
 

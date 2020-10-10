@@ -6,8 +6,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :estimated_shipping_date
 
-  belongs_to :user
-  has_one :purchase
+  belongs_to :user 
+  has_one :purchase #購入機能で必要になる記述
   has_one_attached :image
 
   with_options presence: true do
