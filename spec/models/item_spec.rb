@@ -35,7 +35,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it "カテゴリーidが1だと登録できない" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category is invalid")
       end
@@ -45,7 +45,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it "商品idが1だと登録できない" do
-        @item.condition_id = "1"
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition is invalid")
       end
@@ -55,7 +55,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
       end
       it "配送料の負担idが1だと登録できない" do
-        @item.shipping_cost_id = "1"
+        @item.shipping_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping cost is invalid")
       end
@@ -65,7 +65,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it "発送元の地域がidが0だと登録できない" do
-        @item.prefecture_id = "0"
+        @item.prefecture_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture is invalid")
       end
@@ -75,7 +75,7 @@ describe Item do
         expect(@item.errors.full_messages).to include("Estimated shipping date can't be blank")
       end
       it "発送までの日数idが1だと登録できない" do
-        @item.estimated_shipping_date_id = "1"
+        @item.estimated_shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Estimated shipping date is invalid")
       end
