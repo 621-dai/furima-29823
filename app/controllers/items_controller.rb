@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @item = Item.all
   end
  
   def new
@@ -19,6 +20,7 @@ class ItemsController < ApplicationController
   end
 
   # def show #商品詳細機能で使います
+    # @item = Item.find(params[:id])
   # end
 
   # def edit #編集機能で使います
