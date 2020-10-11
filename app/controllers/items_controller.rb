@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show]
 
   def index
     @item = Item.all.order("created_at DESC")
@@ -20,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show 
-    @item = Item.find(params[:id])
   end
 
   # def edit #編集機能で使います
@@ -40,6 +40,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :introduction, :image, :category_id, 
                                  :condition_id, :shipping_cost_id, :prefecture_id, 
                                  :estimated_shipping_date_id, :price).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
