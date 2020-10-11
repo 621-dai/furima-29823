@@ -24,13 +24,10 @@ class ItemsController < ApplicationController
   # def edit #編集機能で使います
   # end
 
-  def update 
-    if @item.update(item_params)
-       redirect_to action: :show
-    else
-       render :edit
-    end
-  end
+  # def update #編集機能で使います
+    # @items.update(item_params)
+    # redirect_to root_path
+  # end
 
   private
 
