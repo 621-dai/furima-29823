@@ -48,6 +48,10 @@ class ItemsController < ApplicationController
                                  :estimated_shipping_date_id, :price).merge(user_id: current_user.id)
   end
 
+  def purchase_params
+    params.permit(:purchased_id, :postal_code, :prefecture_id, :city, :building, :street_name, :phone_number, :token).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
   def set_item
     @item = Item.find(params[:id])
   end
