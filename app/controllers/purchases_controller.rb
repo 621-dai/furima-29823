@@ -1,5 +1,4 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_new_user_session
   before_action :move_to_root
 
@@ -41,7 +40,6 @@ class PurchasesController < ApplicationController
 
   def move_to_root #出品者が購入できない、かつ売れている物は購入できない
     @item = Item.find(params[:item_id])
-    @purchase_shipping = PurchaseShipping.new(purchase_params)
     redirect_to root_path if user_signed_in? && current_user.id == @item.user_id || @item.purchase.present?
   end
 
