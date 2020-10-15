@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :move_to_new_user_session
+  before_action :authenticate_user!
   before_action :move_to_root
 
   def index
@@ -32,10 +32,6 @@ class PurchasesController < ApplicationController
       card: purchase_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
-  end
-
-  def move_to_new_user_session
-    redirect_to new_user_session_path unless user_signed_in?
   end
 
   def move_to_root #出品者が購入できない、かつ売れている物は購入できない
